@@ -3,6 +3,7 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 import pandas
+import numpy as np
 
 
 class struct(): # matlab-like non-scalar struct 
@@ -53,10 +54,13 @@ if not files:
     quit()
 
 st.title("Now the category is : {}".format(st.session_state.catego+1)) # Title to specify current category 
-comment = st.text_input('Category description:', '') # Comment will be refreshed at evey run
-st.write('The current category is', comment)
+
+
 
 with st.form("my_form"):  # take all the widgets into the form 控件
+
+  comment = st.text_input('Category description:', '') # Comment will be refreshed at evey run
+  st.write('The current category is', comment)
 
  # Only when files is not empty
   c1, c2, c3,c4,c5 = st.columns(5)
@@ -64,7 +68,7 @@ with st.form("my_form"):  # take all the widgets into the form 控件
   if 'figinfo' not in st.session_state:
     st.session_state.figinfo = [ i for i, file in enumerate(files)] 
 
-  for index,file in enumerate(files): #.head()
+  for index,file in enumerate(files): 
 
     
     if index%5 == 0:
@@ -151,6 +155,16 @@ with st.form("my_form"):  # take all the widgets into the form 控件
   st.form_submit_button("Submit",on_click=increment_counter)
   #breakpoint() 
   csv = convert_df(st.session_state.figinfo)
+
+
+
+categos = []
+for i, eachfiginfo in enumerate(st.session_state.figinfo):
+  categos.append( st.session_state.figinfo[i].catego )
+msg =  "Unclassified : {}".format(len(categos) - np.count_nonzero(categos))
+st.header(msg)
+
+
 
 
 downloadstate = st.download_button(
