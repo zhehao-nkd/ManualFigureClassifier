@@ -124,7 +124,7 @@ with st.form("my_form"):  # take all the widgets into the form 控件
       if not hasattr(st.session_state.figinfo[index],'name'):
         st.session_state.figinfo[index] = struct(placeholder = c4.empty(),name = file.name,catego = 0,comment = '')
       with st.session_state.figinfo[index].placeholder.container():
-        image = Image.open(file,use_column_width = 'never')
+        image = Image.open(file)
         st.image(image,use_column_width = 'never')
         s = st.checkbox(st.session_state.figinfo[index].name,key = st.session_state.figinfo[index].name ) 
       if s: 
