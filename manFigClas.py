@@ -77,7 +77,7 @@ with st.form("my_form"):  # take all the widgets into the form 控件
         st.session_state.figinfo[index] = struct(placeholder = c1.empty(),name = file.name,catego = 0,comment = '')
       with st.session_state.figinfo[index].placeholder.container():
         image = Image.open(file)
-        st.image(image)
+        st.image(image,use_column_width = 'never')
         s = st.checkbox(st.session_state.figinfo[index].name,key = st.session_state.figinfo[index].name ) 
       if s: 
         st.session_state.figinfo[index].placeholder.empty()
@@ -93,7 +93,7 @@ with st.form("my_form"):  # take all the widgets into the form 控件
         st.session_state.figinfo[index] = struct(placeholder = c2.empty(),name = file.name,catego = 0,comment = '')
       with st.session_state.figinfo[index].placeholder.container():
         image = Image.open(file)
-        st.image(image)
+        st.image(image,use_column_width = 'never')
         s = st.checkbox(st.session_state.figinfo[index].name,key = st.session_state.figinfo[index].name ) 
       if s:
         st.session_state.figinfo[index].placeholder.empty()
@@ -109,7 +109,7 @@ with st.form("my_form"):  # take all the widgets into the form 控件
         st.session_state.figinfo[index] = struct(placeholder = c3.empty(),name = file.name,catego = 0,comment = '')
       with st.session_state.figinfo[index].placeholder.container():
         image = Image.open(file)
-        st.image(image)
+        st.image(image,use_column_width = 'never')
         s = st.checkbox(st.session_state.figinfo[index].name,key = st.session_state.figinfo[index].name ) 
       if s: 
         st.session_state.figinfo[index].placeholder.empty()
@@ -124,8 +124,8 @@ with st.form("my_form"):  # take all the widgets into the form 控件
       if not hasattr(st.session_state.figinfo[index],'name'):
         st.session_state.figinfo[index] = struct(placeholder = c4.empty(),name = file.name,catego = 0,comment = '')
       with st.session_state.figinfo[index].placeholder.container():
-        image = Image.open(file)
-        st.image(image)
+        image = Image.open(file,use_column_width = 'never')
+        st.image(image,use_column_width = 'never')
         s = st.checkbox(st.session_state.figinfo[index].name,key = st.session_state.figinfo[index].name ) 
       if s: 
         st.session_state.figinfo[index].placeholder.empty()
@@ -141,7 +141,7 @@ with st.form("my_form"):  # take all the widgets into the form 控件
         st.session_state.figinfo[index] = struct(placeholder = c5.empty(),name = file.name,catego = 0,comment = '')
       with st.session_state.figinfo[index].placeholder.container():
         image = Image.open(file)
-        st.image(image)
+        st.image(image,use_column_width = 'never')
         s = st.checkbox(st.session_state.figinfo[index].name,key = st.session_state.figinfo[index].name ) 
       if s: 
         st.session_state.figinfo[index].placeholder.empty()
