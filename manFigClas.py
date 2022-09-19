@@ -63,7 +63,7 @@ with st.form("my_form"):  # take all the widgets into the form 控件
   st.write('The current category is', comment)
 
  # Only when files is not empty
-  c1, c2, c3,c4,c5,c6,c7 = st.columns(5)
+  c1, c2, c3,c4,c5,c6,c7 = st.columns(7)
   
   if 'figinfo' not in st.session_state:
     st.session_state.figinfo = [ i for i, file in enumerate(files)] 
