@@ -63,7 +63,7 @@ with st.form("my_form"):  # take all the widgets into the form 控件
   st.write('The current category is', comment)
 
  # Only when files is not empty
-  c1, c2, c3,c4,c5,c6,c7 = st.columns(7)
+  c1, c2, c3,c4,c5,c6 = st.columns(6)
   
   if 'figinfo' not in st.session_state:
     st.session_state.figinfo = [ i for i, file in enumerate(files)] 
@@ -71,7 +71,7 @@ with st.form("my_form"):  # take all the widgets into the form 控件
   for index,file in enumerate(files): 
 
     
-    if index%7 == 0:
+    if index%6 == 0:
       #breakpoint()
       if not hasattr(st.session_state.figinfo[index],'name'):
         st.session_state.figinfo[index] = struct(placeholder = c1.empty(),name = file.name,catego = 0,comment = '')
@@ -87,7 +87,7 @@ with st.form("my_form"):  # take all the widgets into the form 控件
         if not st.session_state.figinfo[index].comment:
           st.session_state.figinfo[index].comment = comment
 
-    if index%7 == 1:
+    if index%6 == 1:
       #breakpoint()
       if not hasattr(st.session_state.figinfo[index],'name'):
         st.session_state.figinfo[index] = struct(placeholder = c2.empty(),name = file.name,catego = 0,comment = '')
@@ -103,7 +103,7 @@ with st.form("my_form"):  # take all the widgets into the form 控件
         if not st.session_state.figinfo[index].comment:
           st.session_state.figinfo[index].comment = comment
 
-    if index%7 == 2:
+    if index%6 == 2:
       #breakpoint()
       if not hasattr(st.session_state.figinfo[index],'name'):
         st.session_state.figinfo[index] = struct(placeholder = c3.empty(),name = file.name,catego = 0,comment = '')
@@ -119,7 +119,7 @@ with st.form("my_form"):  # take all the widgets into the form 控件
         if not st.session_state.figinfo[index].comment:
           st.session_state.figinfo[index].comment = comment
 
-    if index%7 == 3:
+    if index%6 == 3:
       #breakpoint()
       if not hasattr(st.session_state.figinfo[index],'name'):
         st.session_state.figinfo[index] = struct(placeholder = c4.empty(),name = file.name,catego = 0,comment = '')
@@ -135,7 +135,7 @@ with st.form("my_form"):  # take all the widgets into the form 控件
         if not st.session_state.figinfo[index].comment:
           st.session_state.figinfo[index].comment = comment
 
-    if index%7 == 4:
+    if index%6 == 4:
       #breakpoint()
       if not hasattr(st.session_state.figinfo[index],'name'):
         st.session_state.figinfo[index] = struct(placeholder = c5.empty(),name = file.name,catego = 0,comment = '')
@@ -151,7 +151,7 @@ with st.form("my_form"):  # take all the widgets into the form 控件
         if not st.session_state.figinfo[index].comment:
           st.session_state.figinfo[index].comment = comment
 
-    if index%7 == 5:
+    if index%6 == 5:
       #breakpoint()
       if not hasattr(st.session_state.figinfo[index],'name'):
         st.session_state.figinfo[index] = struct(placeholder = c6.empty(),name = file.name,catego = 0,comment = '')
@@ -167,21 +167,21 @@ with st.form("my_form"):  # take all the widgets into the form 控件
         if not st.session_state.figinfo[index].comment:
           st.session_state.figinfo[index].comment = comment
 
-    if index%7 == 6:
-      #breakpoint()
-      if not hasattr(st.session_state.figinfo[index],'name'):
-        st.session_state.figinfo[index] = struct(placeholder = c7.empty(),name = file.name,catego = 0,comment = '')
-      with st.session_state.figinfo[index].placeholder.container():
-        image = Image.open(file)
-        st.image(image,use_column_width = 'never')
-        s = st.checkbox(st.session_state.figinfo[index].name,key = st.session_state.figinfo[index].name ) 
-      if s: 
-        st.session_state.figinfo[index].placeholder.empty()
-        if st.session_state.figinfo[index].catego ==0: # 0 是未编辑的状态，一旦不是零，说明已经被编辑过，不应该被再次赋值
-          st.session_state.figinfo[index].catego = st.session_state.catego
-          print(st.session_state.catego)
-        if not st.session_state.figinfo[index].comment:
-          st.session_state.figinfo[index].comment = comment
+    # if index%7 == 6:
+    #   #breakpoint()
+    #   if not hasattr(st.session_state.figinfo[index],'name'):
+    #     st.session_state.figinfo[index] = struct(placeholder = c7.empty(),name = file.name,catego = 0,comment = '')
+    #   with st.session_state.figinfo[index].placeholder.container():
+    #     image = Image.open(file)
+    #     st.image(image,use_column_width = 'never')
+    #     s = st.checkbox(st.session_state.figinfo[index].name,key = st.session_state.figinfo[index].name ) 
+    #   if s: 
+    #     st.session_state.figinfo[index].placeholder.empty()
+    #     if st.session_state.figinfo[index].catego ==0: # 0 是未编辑的状态，一旦不是零，说明已经被编辑过，不应该被再次赋值
+    #       st.session_state.figinfo[index].catego = st.session_state.catego
+    #       print(st.session_state.catego)
+    #     if not st.session_state.figinfo[index].comment:
+    #       st.session_state.figinfo[index].comment = comment
 
   print('已经初始化')
   st.form_submit_button("Submit",on_click=increment_counter)
